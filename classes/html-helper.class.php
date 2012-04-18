@@ -50,9 +50,9 @@ class HtmlHelper{
 
 	public function css($name){
 		if(strpos($name,'http://')):
-			echo "<link rel='stylesheet' media='all' href='".CSS_URL.$name.".css'>\n";
-		else:
 			echo "<link rel='stylesheet' media='all' href='".$name."' />\n";
+		else:
+			echo "<link rel='stylesheet' media='all' href='".CSS_URL.$name.".css'>\n";
 		endif;
 	}
 
@@ -60,9 +60,9 @@ class HtmlHelper{
 		echo "<!--[if lt IE ".$version."]>";
 
     	if(strpos($name,'http://')):
-			echo "<link rel='stylesheet' media='all' href='".CSS_URL.$name.".css'>\n";
-		else:
 			echo "<link rel='stylesheet' media='all' href='".$name."'>\n";
+		else:
+			echo "<link rel='stylesheet' media='all' href='".CSS_URL.$name.".css'>\n";
 		endif;
 
     	echo "<![endif]-->";
@@ -87,6 +87,30 @@ class HtmlHelper{
 		endif;
 
     	echo "<![endif]-->\n";
+	}
+
+	// Estruturais ======================================================================
+
+	public function img($name,$alt = null,$link = null){
+
+		if(!empty($link) && is_array($link)): 
+			echo "<a href='".$link['href']."' title='".$link['title']."' target='".$link['target']."'>";
+		elseif(!empty($link) && !is_array($link)):
+			echo "<a href='".$link."'>";
+		endif;
+
+		if(strpos($name,'http://')):
+			echo "<img src='".$name."'";
+		else:
+			echo "<img src='".IMAGES_URL.$name."'";
+		endif;
+
+		if(!empty($alt)) echo "alt='".$alt."'";
+
+		echo "/>";
+
+		if(!empty($link)) echo "</a>";
+
 	}
 
 }
