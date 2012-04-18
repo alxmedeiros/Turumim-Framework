@@ -15,7 +15,7 @@ add_action('wp_head', 'addCSS');
 function addCSS(){
 
 	if (!is_admin()) {
-		echo '<link type="text/css" media="screen" rel="stylesheet" href="'.get_bloginfo('template_url') . '/feelsen-functions/mods.css" charset="utf-8" />';
+		echo '<link type="text/css" media="screen" rel="stylesheet" href="'.CSS_URL. '/mods.css" charset="utf-8" />';
 
 		wp_enqueue_script('jquery');
 	}
