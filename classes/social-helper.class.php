@@ -10,6 +10,8 @@
 
 class SocialHelper{
 
+	// ==================================================== Botões
+
 	public function twitterButton($user,$container = null){
 
 		if(!empty($container)):
@@ -174,6 +176,91 @@ class SocialHelper{
     </script>";
 
 	}
+
+	// ==================================================== Youtube
+
+	public function YoutubeVideoId($url){
+		$ytvIDlen = 11;
+
+		$idStarts = strpos($url, "?v=");
+ 
+		if($idStarts === FALSE)
+			$idStarts = strpos($url, "&v=");
+
+		if($idStarts === FALSE)
+			die("YouTube video ID not found. Please double-check your URL.");
+ 
+		$idStarts +=3;
+ 
+		$ytvID = substr($url, $idStarts, $ytvIDlen);
+ 
+		return $ytvID;
+	}
+
+	public function YoutubeGetId($id){
+		return str_replace('http://gdata.youtube.com/feeds/api/videos/','',$id);
+	}
+
+	public function YoutubeThumb($videoid,$big = false){
+		$thumb = 1;
+		if($big == true) $thumb = 0;
+		
+		echo "<img src='http://img.youtube.com/vi/".$videoid."/".$thumb.".jpg' />";
+
+	}
+
+	public function YoutubeEmbed($videoid, $w, $h){
+		echo '<iframe width="'.$w.'" height="'.$h.'" src="http://www.youtube.com/embed/'.$videoid.'" frameborder="0" allowfullscreen></iframe>';
+	}
+
+	public function YoutubeTitle($id){
+		$url = "http://gdata.youtube.com/feeds/api/videos/".$id;
+      	$xml = simplexml_load_file($url);
+      
+      	echo $xml->title[0];
+	}
+
+	public function YoutubeDescription($id){
+
+      $url = "http://gdata.youtube.com/feeds/api/videos/".$id;
+      $xml = simplexml_load_file($url);
+      
+      echo $xml->content[0];
+
+	}
+
+	public function YoutubeVideos($user,$limit = 5){
+		$url = "http://gdata.youtube.com/feeds/api/users/".$user."/uploads";
+		$feed = simplexml_load_file($url);
+		$i = 1;
+
+			foreach($feed->entry as $video):
+				if($i<=$limit):
+					$videos[] = $this->YoutubeGetId($video->id);
+				endif;
+				$i++;
+			endforeach;
+
+		return $videos;
+	}
+
+	// ==================================================== Facebook
+
+	public function LikeBox($page, $w = 292, $h = 350, $border = "#cccccc", $faces = "true", $stream = "false", $header = "false"){
+
+		echo '<div class="fb-like-box" data-href="'.$page.'" data-width="'.$w.'" data-height="'.$h.'" data-show-faces="'.$faces.'" data-border-color="'.$border.'" data-stream="'.$stream.'" data-header="'.$header.'"></div>';
+
+		echo '<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=130921687038314";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, "script", "facebook-jssdk"));</script>';
+
+	}
+
 
 }
 
