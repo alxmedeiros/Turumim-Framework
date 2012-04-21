@@ -10,7 +10,7 @@
 
 class SocialHelper{
 
-	// ==================================================== Botões
+// ==================================================== Twitter
 
 	public function twitterButton($user,$container = null){
 
@@ -69,6 +69,8 @@ class SocialHelper{
 		echo '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
 	}
 
+// ==================================================== Facebook
+
 	public function facebookButton($url,$container){
 
 		if(!empty($container)):
@@ -119,6 +121,46 @@ class SocialHelper{
 		endif;
 
 	}
+
+	public function LikeBox($page, $w = 292, $h = 350, $border = "#cccccc", $faces = "true", $stream = "false", $header = "false", $echo = true, $align = "center"){
+
+
+		if($border==NULL) $border = "#cccccc";
+		if($faces==NULL) $faces = "true";
+		if($stream==NULL) $stream = "false";
+		if($header==NULL) $header = "false";
+		if($w==NULL) $w = "292";
+		if($h==NULL) $h = "350";
+
+		if(!strpos($page,'http://')){
+			$page = "http://facebook.com/".$page;
+		}
+
+
+		if($echo == true):
+			echo '<div class="fb-like-box" data-href="'.$page.'" data-width="'.$w.'" data-height="'.$h.'" data-show-faces="'.$faces.'" data-border-color="'.$border.'" data-stream="'.$stream.'" data-header="'.$header.'"></div>';
+		else:
+			return '<div class="turumim-like-box" align="'.$align.'"><iframe src="//www.facebook.com/plugins/likebox.php?href='.$page.'&amp;width='.$w.'&amp;height='.$h.'&amp;colorscheme=light&amp;show_faces='.$faces.'&amp;border_color='.str_replace('#','%23',$border).'&amp;stream='.$stream.'&amp;header='.$header.'&amp;appId=130921687038314" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:558px;" allowTransparency="true"></iframe></div>';
+		endif;
+
+		add_action('wp_footer', array($this, 'fbScript'));
+
+	}
+
+	public function fbScript(){
+
+		echo '<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=130921687038314";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, "script", "facebook-jssdk"));</script>';
+
+	}
+
+// ==================================================== Google Plus
 
 	public function plusButton(){
 
@@ -187,7 +229,7 @@ class SocialHelper{
     </script>";
 	}
 
-	// ==================================================== Youtube
+// ==================================================== Youtube
 
 	public function YoutubeVideoId($url){
 		$ytvIDlen = 11;
@@ -219,8 +261,16 @@ class SocialHelper{
 
 	}
 
-	public function YoutubeEmbed($videoid, $w, $h){
-		echo '<iframe width="'.$w.'" height="'.$h.'" src="http://www.youtube.com/embed/'.$videoid.'" frameborder="0" allowfullscreen></iframe>';
+	public function YoutubeEmbed($videoid, $w, $h, $echo = true, $align = "center"){
+
+		if($w==NULL) $w = "560";
+		if($h==NULL) $h = "315";
+
+		if($echo==true):
+			echo '<iframe width="'.$w.'" height="'.$h.'" src="http://www.youtube.com/embed/'.$videoid.'" frameborder="0" allowfullscreen></iframe>';
+		else:
+			return '<div class="turumim-video" align="'.$align.'"><iframe width="'.$w.'" height="'.$h.'" src="http://www.youtube.com/embed/'.$videoid.'" frameborder="0" allowfullscreen></iframe></div>';
+		endif;
 	}
 
 	public function YoutubeTitle($id){
@@ -252,30 +302,7 @@ class SocialHelper{
 			endforeach;
 
 		return $videos;
-	}
-
-	// ==================================================== Facebook
-
-	public function LikeBox($page, $w = 292, $h = 350, $border = "#cccccc", $faces = "true", $stream = "false", $header = "false"){
-
-		echo '<div class="fb-like-box" data-href="'.$page.'" data-width="'.$w.'" data-height="'.$h.'" data-show-faces="'.$faces.'" data-border-color="'.$border.'" data-stream="'.$stream.'" data-header="'.$header.'"></div>';
-
-		add_action('wp_footer', array($this, 'fbScript'));
-
-	}
-
-	public function fbScript(){
-
-		echo '<div id="fb-root"></div>
-			<script>(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) return;
-			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=130921687038314";
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, "script", "facebook-jssdk"));</script>';
-
-	}
+	}	
 
 
 }

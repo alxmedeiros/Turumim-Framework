@@ -26,15 +26,18 @@ require('core/helpers/form.class.php');
 require('core/helpers/social.class.php');
 
 /* Shortcodes */
-
+require('core/shortcodes/social.class.php');
 /* Widgets */
 
 /* Plugins */
 require('plugins/contact-form.class.php');
 
-/* Inicia as classes */
+/* Inicia os Helpers */
 $html = new HtmlHelper();
 $form = new FormHelper();
 $social = new SocialHelper();
+
+/* Inicia os Shortcodes */
+$socialsh = new SocialShortcodes();
 
 ?>
