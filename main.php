@@ -20,11 +20,17 @@ require('inc/core-functions.php');
 require('inc/wordpress-mods.php');
 require('inc/template-tags.php');
 
-/* Classes */
-require('classes/html-helper.class.php');
-require('classes/form-helper.class.php');
-require('classes/social-helper.class.php');
-require('classes/contact-form.class.php');
+/* Helpers */
+require('core/helpers/html.class.php');
+require('core/helpers/form.class.php');
+require('core/helpers/social.class.php');
+
+/* Shortcodes */
+
+/* Widgets */
+
+/* Plugins */
+require('plugins/contact-form.class.php');
 
 /* Inicia as classes */
 $html = new HtmlHelper();
