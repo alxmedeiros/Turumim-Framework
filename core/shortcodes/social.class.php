@@ -11,10 +11,19 @@
 class SocialShortcodes extends SocialHelper{
 	
 	public function __construct(){
+
+		// Carrega os shortcodes
 		add_shortcode('likebox', array($this, 'LikeBoxSC'));  
 		add_shortcode('video', array($this, 'YoutubeVideo'));  
 
+		// Carrega os botões no editor
+		add_action('init', array($this,'AddYoutubeButton'));
+
+		// TinyMCE Refresh
+		add_filter( 'tiny_mce_version', array($this, 'MceRefresh'));
 	}
+
+	// ======================================================= Shortcodes
 
 	public function LikeBoxSC($atts,$content){
 
@@ -24,9 +33,40 @@ class SocialShortcodes extends SocialHelper{
 
 	public function YoutubeVideo($atts,$content){
 		
-		return parent::YoutubeEmbed($content,$atts['w'],$atts['h'],false);
+		$id = parent::YoutubeVideoId($content);
+		return parent::YoutubeEmbed($id,$atts['w'],$atts['h'],false);
 
 	}
+
+	// ======================================================= TinyMCE Buttons
+
+	public function AddYoutubeButton(){
+		
+		if ( ! current_user_can('edit_posts') && ! current_user_can('edit_pages') )	return;
+   		
+   		if ( get_user_option('rich_editing') == 'true'):
+     		add_filter('mce_external_plugins', array($this, 'AddYoutubeButtonPlugin'));
+     		add_filter('mce_buttons', array($this, 'RegisterYoutubeButton'));
+   		endif;
+
+	}
+
+	public function RegisterYoutubeButton($buttons) {
+   		array_push($buttons, "|", "brettsyoutube");
+   		return $buttons;
+	}
+
+	public function AddYoutubeButtonPlugin($plugin_array) {
+   		$plugin_array['brettsyoutube'] = get_bloginfo('template_url').'/turumim/js/YoutubeButton.js';
+   		return $plugin_array;
+	}
+
+
+	public function MceRefresh($ver){
+  		$ver += 3;
+  		return $ver;
+	}
+
 }
 
- ?>
+?>

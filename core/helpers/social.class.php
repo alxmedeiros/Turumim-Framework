@@ -71,7 +71,7 @@ class SocialHelper{
 
 // ==================================================== Facebook
 
-	public function facebookButton($url,$container){
+	public function facebookButton($url,$container = null){
 
 		if(!empty($container)):
 
