@@ -18,6 +18,7 @@ class SocialShortcodes extends SocialHelper{
 
 		// Carrega os botões no editor
 		add_action('init', array($this,'AddYoutubeButton'));
+		add_action('init', array($this,'AddFacebookButton'));
 
 		// TinyMCE Refresh
 		add_filter( 'tiny_mce_version', array($this, 'MceRefresh'));
@@ -52,12 +53,33 @@ class SocialShortcodes extends SocialHelper{
 	}
 
 	public function RegisterYoutubeButton($buttons) {
-   		array_push($buttons, "|", "brettsyoutube");
+   		array_push($buttons, "|", "turumimvideo");
    		return $buttons;
 	}
 
 	public function AddYoutubeButtonPlugin($plugin_array) {
-   		$plugin_array['brettsyoutube'] = get_bloginfo('template_url').'/turumim/js/YoutubeButton.js';
+   		$plugin_array['turumimvideo'] = get_bloginfo('template_url').'/turumim/js/YoutubeButton.js';
+   		return $plugin_array;
+	}
+
+	public function AddFacebookButton(){
+		
+		if ( ! current_user_can('edit_posts') && ! current_user_can('edit_pages') )	return;
+   		
+   		if ( get_user_option('rich_editing') == 'true'):
+     		add_filter('mce_external_plugins', array($this, 'AddFacebookButtonPlugin'));
+     		add_filter('mce_buttons', array($this, 'RegisterFacebookButton'));
+   		endif;
+
+	}
+
+	public function RegisterFacebookButton($buttons) {
+   		array_push($buttons, "|", "turumimlike");
+   		return $buttons;
+	}
+
+	public function AddFacebookButtonPlugin($plugin_array) {
+   		$plugin_array['turumimlike'] = get_bloginfo('template_url').'/turumim/js/FacebookButton.js';
    		return $plugin_array;
 	}
 

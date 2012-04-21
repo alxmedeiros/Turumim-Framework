@@ -1,17 +1,17 @@
 
 (function() {
-    tinymce.create('tinymce.plugins.TurumimYouTube', {
+    tinymce.create('tinymce.plugins.TurumimFacebook', {
         init : function(ed, url) {
-            ed.addButton('turumimvideo', {
-                title : 'turumimvideo.youtube',
-                image : url+'/img/youtube.png',
+            ed.addButton('turumimlike', {
+                title : 'turumimlike.youtube',
+                image : url+'/img/facebook.png',
                 onclick : function() {
                     console.log(url);
                     idPattern = /(?:(?:[^v]+)+v.)?([^&=]{11})(?=&|$)/;
-                    var vidId = prompt("YouTube Video", "Insira a url do vídeo");
+                    var vidId = prompt("Facebook Likebox", "Insira a url da página");
                     var m = vidId;
                     if (m != null && m != 'undefined')
-                        ed.execCommand('mceInsertContent', false, '[video]'+m+'[/video]');
+                        ed.execCommand('mceInsertContent', false, '[likebox]'+m+'[/likebox]');
                 }
             });
         },
@@ -20,7 +20,7 @@
         },
         getInfo : function() {
             return {
-                longname : "Turumim Youtube Shortcode",
+                longname : "Turumim Facebook Shortcode",
                 author : 'Sérgio Vilar',
                 authorurl : 'http://about.me/vilar',
                 infourl : 'http://turumim.feelsen.com/',
@@ -28,5 +28,5 @@
             };
         }
     });
-    tinymce.PluginManager.add('turumimvideo', tinymce.plugins.TurumimYouTube);
+    tinymce.PluginManager.add('turumimlike', tinymce.plugins.TurumimFacebook);
 })();
