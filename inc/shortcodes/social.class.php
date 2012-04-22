@@ -58,7 +58,7 @@ class SocialShortcodes extends SocialHelper{
 	}
 
 	public function AddYoutubeButtonPlugin($plugin_array) {
-   		$plugin_array['turumimvideo'] = get_bloginfo('template_url').'/turumim/js/YoutubeButton.js';
+   		$plugin_array['turumimvideo'] = JS_URL.'YoutubeButton.js';
    		return $plugin_array;
 	}
 
@@ -79,7 +79,7 @@ class SocialShortcodes extends SocialHelper{
 	}
 
 	public function AddFacebookButtonPlugin($plugin_array) {
-   		$plugin_array['turumimlike'] = get_bloginfo('template_url').'/turumim/js/FacebookButton.js';
+   		$plugin_array['turumimlike'] = JS_URL.'FacebookButton.js';
    		return $plugin_array;
 	}
 

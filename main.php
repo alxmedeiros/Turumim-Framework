@@ -12,8 +12,8 @@
 define(FEELSEN_URL, get_bloginfo('template_url')."/turumim/");
 define(THEME_URL, get_bloginfo('template_url'));
 define(IMAGES_URL, get_bloginfo('template_url')."/images/");
-define(CSS_URL, FEELSEN_URL."css/");
-define(JS_URL, FEELSEN_URL."js/");
+define(CSS_URL, FEELSEN_URL."inc/core/css/");
+define(JS_URL, FEELSEN_URL."inc/core/js/");
 
 function require_folder($folder){
 
