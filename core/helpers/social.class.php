@@ -124,7 +124,6 @@ class SocialHelper{
 
 	public function LikeBox($page, $w = 292, $h = 350, $border = "#cccccc", $faces = "true", $stream = "false", $header = "false", $echo = true, $align = "center"){
 
-
 		if($border==NULL) $border = "#cccccc";
 		if($faces==NULL) $faces = "true";
 		if($stream==NULL) $stream = "false";
@@ -132,18 +131,15 @@ class SocialHelper{
 		if($w==NULL) $w = "292";
 		if($h==NULL) $h = "350";
 
-		if(!strpos($page,'http://')){
-			$page = "http://facebook.com/".$page;
-		}
-
+		$page = str_replace('http://facebook.com/','',$page);
+		$pagina = 'http://facebook.com/'.$page;
 
 		if($echo == true):
-			echo '<div class="fb-like-box" data-href="'.$page.'" data-width="'.$w.'" data-height="'.$h.'" data-show-faces="'.$faces.'" data-border-color="'.$border.'" data-stream="'.$stream.'" data-header="'.$header.'"></div>';
+			echo '<div class="fb-like-box" data-href="'.$pagina.'" data-width="'.$w.'" data-height="'.$h.'" data-show-faces="'.$faces.'" data-border-color="'.$border.'" data-stream="'.$stream.'" data-header="'.$header.'"></div>';
+			add_action('wp_footer', array($this, 'fbScript'));
 		else:
-			return '<div class="turumim-like-box" align="'.$align.'"><iframe src="//www.facebook.com/plugins/likebox.php?href='.$page.'&amp;width='.$w.'&amp;height='.$h.'&amp;colorscheme=light&amp;show_faces='.$faces.'&amp;border_color='.str_replace('#','%23',$border).'&amp;stream='.$stream.'&amp;header='.$header.'&amp;appId=130921687038314" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:558px;" allowTransparency="true"></iframe></div>';
+			return '<div class="turumim-like-box" align="'.$align.'"><iframe src="//www.facebook.com/plugins/likebox.php?href='.$pagina.'&amp;width='.$w.'&amp;height='.$h.'&amp;colorscheme=light&amp;show_faces='.$faces.'&amp;border_color='.str_replace('#','%23',$border).'&amp;stream='.$stream.'&amp;header='.$header.'&amp;appId=130921687038314" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:558px;" allowTransparency="true"></iframe></div>';
 		endif;
-
-		add_action('wp_footer', array($this, 'fbScript'));
 
 	}
 
