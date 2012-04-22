@@ -15,7 +15,7 @@ if ( ! class_exists( 'WP' ) )
 	header( 'Status: 403 Forbidden' );
 	header( 'HTTP/1.1 403 Forbidden' );
 	exit;
-}
+} 
 
 // Optimize code for loading plugin files ONLY on admin side
 // @see http://goo.gl/EhMFP
@@ -27,8 +27,8 @@ if ( defined( 'WP_ADMIN' ) && WP_ADMIN )
 	// Define plugin URLs, for fast enqueuing scripts and styles
 	if ( ! defined( 'RWMB_URL' ) )
 		define( 'RWMB_URL', plugin_dir_url( __FILE__ ) );
-	define( 'RWMB_JS_URL', get_bloginfo('template_url').'/turumim/core/classes/meta-box/js/' );
-	define( 'RWMB_CSS_URL', get_bloginfo('template_url').'/turumim/core/classes/meta-box/css/' );
+	define( 'RWMB_JS_URL', get_bloginfo('template_url').'/turumim/inc/classes/meta-box/js/' );
+	define( 'RWMB_CSS_URL', get_bloginfo('template_url').'/turumim/inc/classes/meta-box/css/' );
 
 	// Plugin paths, for including files
 	if ( ! defined( 'RWMB_DIR' ) )
