@@ -25,12 +25,14 @@ function require_folder($folder){
 }
 
 /* Requires */
-require_folder("inc");
-require_folder("core/helpers");
-require_folder("core/shortcodes");
-require_folder("core/widgets");
+require_folder("inc/core");
+require_folder("inc/classes");
+require_folder("inc/helpers");
+require_folder("inc/shortcodes");
+require_folder("inc/widgets");
 require_folder("plugins");
 
+require_folder("core/classes/meta-box");
 
 /* Inicia os Helpers */
 $html = new HtmlHelper();
