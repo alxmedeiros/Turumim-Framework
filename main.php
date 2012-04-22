@@ -32,7 +32,12 @@ require_folder("inc/shortcodes");
 require_folder("inc/widgets");
 require_folder("plugins");
 
-require_folder("core/classes/meta-box");
+/* Classes com mais de um arquivo */
+require_folder("inc/classes/meta-box");
+require_folder("inc/classes/wordpress-developers/lib");
+
+/* Configurações */
+require_folder("config");
 
 /* Inicia os Helpers */
 $html = new HtmlHelper();
