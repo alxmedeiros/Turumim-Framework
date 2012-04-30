@@ -15,10 +15,16 @@ add_action('wp_head', 'addCSS');
 function addCSS(){
 
 	if (!is_admin()) {
-		echo '<link type="text/css" media="screen" rel="stylesheet" href="'.CSS_URL. '/mods.css" charset="utf-8" />';
-
-		wp_enqueue_script('jquery');
+		echo '<link type="text/css" media="screen" rel="stylesheet" href="'.TUR_CSS_URL. '/mods.css" charset="utf-8" />';
 	}
 }
+
+function admin_register_head() {
+
+    echo '<link type="text/css" media="screen" rel="stylesheet" href="'.TUR_CSS_URL. '/admin.css" charset="utf-8" />';
+    
+}
+add_action('admin_head', 'admin_register_head');
+add_filter('show_admin_bar', '__return_false'); 
 
 ?>

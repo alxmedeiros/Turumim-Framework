@@ -9,11 +9,14 @@
  */
 
 /* Constantes */
-define(FEELSEN_URL, get_bloginfo('template_url')."/turumim/");
+define(TURUMIM_URL, get_bloginfo('template_url')."/turumim/");
 define(THEME_URL, get_bloginfo('template_url'));
 define(IMAGES_URL, get_bloginfo('template_url')."/images/");
-define(CSS_URL, FEELSEN_URL."inc/core/css/");
-define(JS_URL, FEELSEN_URL."inc/core/js/");
+define(IMG_URL, TURUMIM_URL."inc/core/img/");
+define(CSS_URL, THEME_URL."/css/");
+define(TUR_CSS_URL, TURUMIM_URL."inc/core/css/");
+define(TUR_JS_URL, TURUMIM_URL."inc/core/js/");
+define(JS_URL, THEME_URL."/js/");
 
 function require_folder($folder){
 
@@ -24,20 +27,28 @@ function require_folder($folder){
 
 }
 
+function require_($file){
+	require get_template_directory()."/turumim/".$file;
+}
+
 /* Requires */
 require_folder("inc/core");
 require_folder("inc/classes");
 require_folder("inc/helpers");
 require_folder("inc/shortcodes");
 require_folder("inc/widgets");
-require_folder("plugins");
+require_folder("components");
+require_folder("config/post-types");
+require_folder("config/post-types/taxonomies");
 
 /* Classes com mais de um arquivo */
 require_folder("inc/classes/meta-box");
-require_folder("inc/classes/wordpress-developers/lib");
+require_("inc/classes/phpflickr/phpFlickr.php");
+
 
 /* Configurações */
 require_folder("config");
+
 
 /* Inicia os Helpers */
 $html = new HtmlHelper();

@@ -10,6 +10,8 @@
 
 class HtmlHelper{
 
+	private $jqueryon;
+
 	// Tags Gerais ========================================================================
 	public function charset($charset){
 		echo "<meta charset='".$charset."'>\n";
@@ -35,12 +37,12 @@ class HtmlHelper{
 	// CSS ===============================================================================
 	public function css960($cols = null){
 
-		echo "<link rel='stylesheet' media='all' href='".CSS_URL."reset.css'>\n";
-		echo "<link rel='stylesheet' media='all' href='".CSS_URL."text.css'>\n";
-		echo "<link rel='stylesheet' media='all' href='".CSS_URL."960.css'>\n";
+		echo "<link rel='stylesheet' media='all' href='".TUR_CSS_URL."reset.css'>\n";
+		echo "<link rel='stylesheet' media='all' href='".TUR_CSS_URL."text.css'>\n";
+		echo "<link rel='stylesheet' media='all' href='".TUR_CSS_URL."960.css'>\n";
 
 		if(!empty($cols))
-		echo "<link rel='stylesheet' media='all' href='".CSS_URL."960_".$cols."_col.css'>\n";
+		echo "<link rel='stylesheet' media='all' href='".TUR_CSS_URL."960_".$cols."_col.css'>\n";
 
 	}
 
@@ -48,8 +50,9 @@ class HtmlHelper{
 		echo "<link rel='stylesheet' media='all' href='".THEME_URL."/style.css'>\n";
 	}
 
-	public function css($name){
-		if(strpos($name,'http://')):
+	public function css($name, $external = false){
+	
+		if($external == true):
 			echo "<link rel='stylesheet' media='all' href='".$name."' />\n";
 		else:
 			echo "<link rel='stylesheet' media='all' href='".CSS_URL.$name.".css'>\n";
@@ -69,8 +72,9 @@ class HtmlHelper{
 	}
 
 	// Javascript =======================================================================
-	public function javascript($name){
-		if(strpos($name,'http://')):
+	public function javascript($name, $external = false){
+
+		if($external == true):
 			echo "<script type='text/javascript' src='".$name."'></script>\n";
 		else:
 			echo "<script type='text/javascript' src='".JS_URL.$name.".js'></script>\n";
@@ -88,6 +92,18 @@ class HtmlHelper{
 
     	echo "<![endif]-->\n";
 	}
+	
+	public function jquery($name){
+
+		if($this->jqueryon!=true):
+			$this->jqueryon = true;
+			echo "<script type='text/javascript' src='".TUR_JS_URL."jquery.js'></script>\n";
+		endif;
+		
+		echo "<script type='text/javascript' src='".JS_URL.'jquery.'.$name.".js'></script>\n";
+		
+	}
+	
 
 	// Estruturais ======================================================================
 

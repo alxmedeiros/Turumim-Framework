@@ -59,3 +59,7 @@ function sitename(){
 function show_menu($menu){
 	wp_nav_menu( array('menu' => $menu,'container'=>'false' ));
 }
+
+function ano(){
+	echo date('Y');
+}

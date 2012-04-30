@@ -299,6 +299,45 @@ class SocialHelper{
 
 		return $videos;
 	}	
+	
+	
+	public function FlickrRecent($limit, $user){
+	
+		$f = new phpFlickr(get_page_option('flickr_api_key'));
+		$photos = $f->people_getPublicPhotos($user, NULL, NULL, $limit);
+				
+			foreach ((array)$photos['photos']['photo'] as $photo): 
+			
+				$fotos[] = array(
+					'link'	=>	$f->buildPhotoURL($photo, 'medium'),
+					'thumb'	=>	$f->buildPhotoURL($photo, 'small'),
+					'title'	=>	$photo['title'],
+				); 
+						
+			endforeach;
+				
+		return $fotos;
+		
+	}
+	
+	public function FlickrPhotoset($photoset_id){
+		
+		$f = new phpFlickr(get_page_option('flickr_api_key'));
+		$photos = $f->photosets_getPhotos($photoset_id);
+		
+		foreach ($photos['photoset']['photo'] as $photo): 
+
+			$fotos[] = array(
+				'link'	=>	$f->buildPhotoURL($photo, 'medium'),
+				'thumb'	=>	$f->buildPhotoURL($photo, 'square'),
+				'title'	=>	$photo['title'],
+			); 
+			
+		endforeach;
+		
+		return $fotos;
+	
+	}
 
 
 }

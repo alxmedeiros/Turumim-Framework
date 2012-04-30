@@ -14,4 +14,26 @@ function debug($a){
 	echo "</pre>";
 }
 
+function get_page_option($name){
+
+	$data = get_option('demo_options');
+	
+	if(is_array($data[$name]) && !empty($data[$name]['src'])):
+		return $data[$name]['id'];
+	else:
+		return $data[$name];
+	endif;
+	
+}
+
+function meta($meta){
+	global $post;
+	echo get_post_meta($post->ID, $meta, true);
+}
+
+function get_meta($meta){
+	global $post;
+	return get_post_meta($post->ID, $meta, true);
+}
+
 ?>

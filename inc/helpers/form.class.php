@@ -30,7 +30,7 @@ class FormHelper{
 	}
 
 	public function closeForm($label){
-		echo "<input type='submit' id='enviar-contato' value='".$label."' />\n";
+		echo "<input type='submit' class='botao' id='enviar-contato' value='".$label."' />\n";
 		echo "</form>";
 	}
 
@@ -40,10 +40,10 @@ class FormHelper{
 		// Monta o campo
 		$span = "";
 
-		echo "<div class='formulario-textfield formulario-input'>";
+		echo "<p>";
 
-		if($required == true) $span = "<span>*</span>";
-		if(!empty($label)) echo "<label>".$label.$span."</label> ";
+		//if($required == true) $span = "<span>*</span>";
+		if(!empty($label)) echo "<label>".$label.$span."</label>:<br />";
 
 		// Input
 		echo "<input type='text' name='".$name."'";
@@ -58,7 +58,7 @@ class FormHelper{
 		// Fecha o input
 		echo " />\n";
 
-		echo "</div>";
+		echo "</p>";
 	}
 
 	public function select($name, $label = null, $opcoes = array(), $required = false, $class = null, $id = null){
@@ -96,10 +96,10 @@ class FormHelper{
 		// Monta o campo
 		$span = "";
 
-		echo "<div class='formulario-textarea formulario-input'>";
+		echo "<p>";
 
-		if($required == true) $span = "<span>*</span>";
-		if(!empty($label)) echo "<label>".$label.$span."</label> ";
+		//if($required == true) $span = "<span>*</span>";
+		if(!empty($label)) echo "<label>".$label.$span."</label>:<br />";
 
 		// Input
 		echo "<textarea name='".$name."'";
@@ -114,7 +114,7 @@ class FormHelper{
 		if(!empty($value)) echo $value;
 
 		// Fecha o input
-		echo "</textarea></div>\n";
+		echo "</textarea></p>\n";
 	}
 
 }
