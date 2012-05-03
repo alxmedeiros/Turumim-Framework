@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .DS_Store
 Thumbs.db
 .cache
@@ -8,3 +9,15 @@ Thumbs.db
 nbproject
 *.sublime-project
 *.sublime-workspace
+=======
+.DS_Store
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+nbproject
+*.sublime-project
+*.sublime-workspace
+>>>>>>> 9cab9fe177c503521b866431dadbb8dd8255230a
