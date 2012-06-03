@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237
 $config = array(
     'menu'=> array('top' => 'my_slug'),                 //sub page to settings page
     'page_title' => 'Opções',   //The name of this page
@@ -14,6 +17,7 @@ $config = array(
 $options_panel = new BF_Admin_Page_Class($config);
 
 $options_panel->OpenTabs_container('');
+<<<<<<< HEAD
 
 $args = array(
   'type'                     => 'post',
@@ -95,5 +99,33 @@ $options_panel->addText('twitter', array('name'=> 'Usuário do Twitter','desc'=>
 $options_panel->addText('facebook', array('name'=> 'Facebook','desc'=>'Endereço da sua página/perfil no Facebook'));
 $options_panel->addText('gplus', array('name'=> 'Google Plus','desc'=>'Endereço para sua página/perfil no Google Plus'));
 $options_panel->CloseTab();
+=======
+$options_panel->TabsListing(array(
+   'links' => array(
+   'options_1' =>  __('Opções Básicas'),
+   'options_2' => __('Página Inicial'),
+   )
+));
+
+$options_panel->OpenTab('options_1');
+
+$options_panel->Title("Opções Básicas");
+$options_panel->addText('telefone_contato', array('name'=> 'Principal Telefone para contato'));
+$options_panel->addTextarea('telefones_contato', array('name'=> 'Todos telefones para contato'));
+$options_panel->addTextarea('endereco', array('name'=> 'Endereço'));
+$options_panel->addText('emailcontato', array('name'=> 'Endereço de email','desc'=>'Através deste email você receberá os envios a partir do site'));
+$options_panel->CloseTab();
+
+$options_panel->OpenTab('options_2');
+
+$options_panel->Title('Página Inicial');
+//$options_panel->addImage('fotodestaque',array('name'=> 'Foto de destaque'));
+$options_panel->addText('dias_funcionamento',array('name'=> 'Dias de funcionamento'));
+$options_panel->addTextarea('horario_funcionamento', array('name'=> 'Horário de funcoinamento'));
+$options_panel->addTextarea('telefone_exame', array('name'=> 'Telefones para marcar exame'));
+$options_panel->CloseTab();
+
+
+>>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237
 
 ?>

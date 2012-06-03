@@ -32,6 +32,7 @@ endwhile; wp_reset_query();
 
 // 2nd meta box
 $meta_boxes[] = array(
+<<<<<<< HEAD
 	'id'		=> 'postdetail',
 	'title'		=> 'Detalhes do post',
 	'pages'		=> array( 'post'),
@@ -46,12 +47,41 @@ $meta_boxes[] = array(
 			'name'	=> "Subtítulo",
 			'id'	=> "{$prefix}subtitulo",
 			'type'	=> 'text',
+=======
+	'id'		=> 'medicodetail',
+	'title'		=> 'Um pouco sobre o médico',
+	'pages'		=> array( 'medico'),
+	'fields'	=> array(
+		// WYSIWYG/RICH TEXT EDITOR
+		array(
+			'id'	=> "{$prefix}sobre",
+			'type'	=> 'wysiwyg',
+		),
+	)
+);
+
+$meta_boxes[] = array(
+	'id'		=> 'medicodetail2',
+	'title'		=> 'Diagnósticos',
+	'pages'		=> array( 'medico'),
+	'context' => 'side', 
+	'priority' => 'low',
+	'fields'	=> array(
+		array(
+			'id'	=> "{$prefix}diagnosticos",
+			'type'	=> 'checkbox_list',
+			'options' => $diagnosticos
+>>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237
 		),
 	)
 );
 
 // 2nd meta box
+<<<<<<< HEAD
 /*$meta_boxes[] = array(
+=======
+$meta_boxes[] = array(
+>>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237
 	'id'		=> 'diagnosticodetail',
 	'title'		=> 'Descrição',
 	'pages'		=> array( 'diagnostico'),
@@ -63,7 +93,146 @@ $meta_boxes[] = array(
 			'type'	=> 'wysiwyg',
 		),
 	)
+<<<<<<< HEAD
 );*/
+=======
+);
+
+// 2nd meta box
+$meta_boxes[] = array(
+	'id'		=> 'diagnosticodetail2',
+	'title'		=> 'Prodecimentos e Preparativos',
+	'pages'		=> array( 'diagnostico'),
+
+	'fields'	=> array(
+		array(
+			'id'	=> "{$prefix}procedimentos",
+			'type'	=> 'wysiwyg',
+		),
+	)
+);
+
+$meta_boxes[] = array(
+	'id'		=> 'slidedetail2',
+	'title'		=> 'Detalhes do slide',
+	'pages'		=> array( 'slide'),
+	'fields'	=> array(
+		array(
+			'name'	=> "Palavra em destaque",
+			'id'	=> "{$prefix}palavradestaque",
+			'type'	=> 'text',
+			'desc'	=> 'Indique a palavra contida no título para realçar no destaque'
+		),
+		array(
+			'name'	=> 'Texto descritivo',
+			'id'	=> "{$prefix}descritivo",
+			'type'	=> 'textarea',
+		),
+		array(
+			'name'	=> 'Imagem em destaque',
+			'id'	=> "{$prefix}imgdestaque",
+			'type'	=> 'image',
+		),
+
+	)
+);
+
+$meta_boxes[] = array(
+	'id'		=> 'slidedetail3',
+	'title'		=> 'Link no slide',
+	'pages'		=> array( 'slide'),
+	'context' => 'side', 
+	'priority' => 'low',
+	'fields'	=> array(
+		array(
+			'id'	=> "{$prefix}link",
+			'type'	=> 'text',
+			'desc'	=> 'Deixe vazio para não mostrar nenhum link'
+		),
+		array(
+			'name'	=> 'Abrir em nova aba? ',
+			'id'	=> "{$prefix}blank",
+			'type'	=> 'checkbox',
+		),
+
+	)
+);
+
+$meta_boxes[] = array(
+	'id'		=> 'slidedetail4',
+	'title'		=> 'Background',
+	'pages'		=> array( 'slide'),
+
+	'fields'	=> array(
+		array(
+			'name'	=> 'Cor de background ',
+			'id'	=> "{$prefix}cor",
+			'type'	=> 'color',
+		),
+		array(
+			'name'	=> 'Imagem de background',
+			'id'	=> "{$prefix}imgbg",
+			'type'	=> 'image',
+		),
+
+	)
+);
+
+// 2nd meta box
+$meta_boxes[] = array(
+	'id'		=> 'postdetail1',
+	'title'		=> 'Resumo da página inicial',
+	'pages'		=> array( 'post'),
+
+	'fields'	=> array(
+		array(
+			'id'	=> "{$prefix}resumo",
+			'type'	=> 'wysiwyg',
+		),
+	)
+);
+		
+		
+$meta_boxes[] = array(
+	'id'		=> 'parceirodetail',
+	'title'		=> 'Link',
+	'pages'		=> array( 'parceiro'),
+	'fields'	=> array(
+		array(
+			'id'	=> "{$prefix}link",
+			'type'	=> 'text',
+			'desc'	=> 'Deixe vazio para não mostrar nenhum link'
+		),
+		array(
+			'name'	=> 'Abrir em nova aba? ',
+			'id'	=> "{$prefix}blank",
+			'type'	=> 'checkbox',
+		),
+
+	)
+);
+
+
+$meta_boxes[] = array(
+	'id'		=> 'unidadedetail',
+	'title'		=> 'Informações adicionais',
+	'pages'		=> array( 'unidade'),
+	'fields'	=> array(
+		array(
+			'name'	=> 'Rua / Número',
+			'id'	=> "{$prefix}rua",
+			'type'	=> 'text',
+		),
+		array(
+			'name'	=> 'Bairro / Cidade',
+			'id'	=> "{$prefix}bairro",
+			'type'	=> 'text',
+		),
+
+	)
+);
+
+>>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237
 
 
 

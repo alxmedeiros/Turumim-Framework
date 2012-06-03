@@ -50,10 +50,13 @@ function siteurl(){
 	echo get_bloginfo('url')."/";
 }
 
+<<<<<<< HEAD
 function get_siteurl(){
     return get_bloginfo('url')."/";
 }
 
+=======
+>>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237
 // Nome do Site
 function sitename(){
 	echo get_bloginfo('name');
@@ -88,6 +91,7 @@ function the_meta_thumbnail($meta, $size){
 
 }
 
+<<<<<<< HEAD
 function the_post_thumbnail_src($size = 'thumbnail'){
 
     global $post;
@@ -99,6 +103,8 @@ function the_post_thumbnail_src($size = 'thumbnail'){
 
 }
 
+=======
+>>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237
 function taxonomy_meta_img_src($term_id, $metabox_id, $field, $size){
     $meta = get_option($metabox_id);
     
@@ -118,6 +124,7 @@ function taxonomy_meta_img($term_id, $metabox_id, $field, $size){
 
 }
 
+<<<<<<< HEAD
 function get_the_cat(){
 	 global $post;
 	 $category = get_the_category($post->ID);	 
@@ -198,3 +205,6 @@ function related_posts($limit) {
 }
 
 ?>
+=======
+
+>>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237

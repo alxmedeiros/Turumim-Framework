@@ -1,0 +1,71 @@
+/*
+Theme Name: Turumim
+Theme URI: https://github.com/sergiovilar/Turumim-Framework
+Author: Sérgio Vilar
+Author URI: http://about.me/vilar
+Description: Tema de exemplo usando o Turumim Framework
+Version: 1.0
+*/
+
+/* reset */
+header, footer, nav, section, article, aside{ display: block; }
+body{color:#777;}
+
+/* Container */
+/*#pagina{border-left:1px solid #ccc;border-right:1px solid #ccc;}*/
+
+/* Header */
+#header{padding:20px;}
+#pmjplogo{display:block;width:128px;height:92px;overflow: hidden; text-indent:-9999px;background:url(images/pmjp.jpg);float:left;margin-right:50px}
+h1{float:left;width:518px;height:58px;background:url(images/logo.jpg);margin-top:20px;}
+h1 a{width:518px;height:58px;display: block;overflow: hidden;text-indent:-9999px;}
+#redes-sociais{float:right;border-left:1px solid #ccc; padding-left:30px; margin-right:40px;}
+#facebook-button{margin-top:10px; margin-right:10px;float:left;}
+#plus-button{position:relative;top:10px;}
+
+/* Menu topo */
+#menu-topo{clear:both;}
+#menu-topo ul{width:auto;float:left;list-style:none;height:35px;background:url(images/bgmenu.jpg) repeat-x; border:1px solid #ccc;}
+#menu-topo ul li{position:relative;cursor:pointer;float:left;margin-left:0;border-left:1px solid #ccc;}
+#menu-topo ul li:first-child{border-left:none;}
+#menu-topo ul li a{display:block;text-decoration:none;color:#777;padding:8px 19px 8px 19px}
+#menu-topo ul li a:hover{color:#5e5e5e;}
+#menu-topo form{float: right;}
+
+#menu-topo ul li ul{display:none;}
+#menu-topo ul li:hover ul{display:block;}
+
+#menu-topo ul li ul{padding:10px;float:left;height:auto;position:absolute;z-index:1000;background:#fff;border: 0 1px 1px 1px solid #ccc}
+#menu-topo ul li ul li{float:none;border:none;margin-bottom:3px;background:url(images/arrow_off.png) no-repeat 0 9px;padding-left:8px;}
+#menu-topo ul li ul li:hover{background:url(images/arrow_on.png) no-repeat 0 9px;}
+#menu-topo ul li ul li a{padding:3px;}
+
+/* Busca */
+#menu-topo input[type=text]{border:none;background:#eee;width:214px;height:31px;border:1px solid #ccc;margin-left:10px;margin-top:1px;padding-left:10px;}
+#menu-topo input[type=submit]{width:92px;height:35px;background:url(images/bgmenu.jpg) repeat-x; border:1px solid #ccc;border-left:none;font-weight:bold;color:#777;position:relative;left:-4px;top:-1px;cursor:pointer;}
+
+/* Conteúdo */
+h3{text-transform:uppercase; font-size:19px; color:#5e5e5e;font-weight:normal;margin-bottom:0;}
+#main-content a{color:#5e5e5e; text-decoration:none;}
+
+/* Formuários */
+.success{background:#d8ffe3;padding:10px;border:1px solid #40654b;margin-bottom:10px; color:#40654b;}
+.error{background:#ffb7b7;padding:10px;border:1px solid #7d3030;margin-bottom:10px; color:#7d3030;}
+form ul{list-style:none;margin:0;padding:0;}
+form ul li{margin-left:0;clear:both;margin-bottom:10px;}
+form ul li label{display:block;float:left;width:100px;margin-top:7px;}
+form ul li input[type=text]{border:none;width:170px;border:1px solid #ccc; padding:7px;}
+form ul li textarea{border:1px solid #ccc;width:300px;height:100px; padding:7px;}
+form ul li input[type=submit]{background:#5e5e5e;padding:10px;color:#fff;cursor:pointer;border:none;padding-left:20px;padding-right:20px;}
+
+/* Sidebar */
+#sidebar h3{margin-bottom:10px;}
+#sidebar ul{list-style:none;margin-left:0;padding-left:0;}
+#sidebar ul li{border-bottom:1px dashed #ccc;margin-left:0;padding-bottom:5px;margin-bottom:5px;}
+#sidebar ul li a{text-decoration:none; color:#777;}
+
+/* Rodapé */
+footer{clear:both;}
+footer a{text-decoration:none;color:#333;}
+
+footer address{text-align:center;}
