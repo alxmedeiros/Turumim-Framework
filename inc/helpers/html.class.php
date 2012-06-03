@@ -50,21 +50,12 @@ class HtmlHelper{
 		echo "<link rel='stylesheet' media='all' href='".THEME_URL."/style.css'>\n";
 	}
 
-<<<<<<< HEAD
-	public function css($name, $external = false, $media = "all"){
-	
-		if($external == true):
-			echo "<link rel='stylesheet' media='".$media."' href='".$name."' />\n";
-		else:
-			echo "<link rel='stylesheet' media='".$media."' href='".CSS_URL.$name.".css'>\n";
-=======
 	public function css($name, $external = false){
 	
 		if($external == true):
 			echo "<link rel='stylesheet' media='all' href='".$name."' />\n";
 		else:
 			echo "<link rel='stylesheet' media='all' href='".CSS_URL.$name.".css'>\n";
->>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237
 		endif;
 	}
 

@@ -76,7 +76,6 @@ function tur_get_terms($taxonomy, $parent = 0){
 
 }
 
-<<<<<<< HEAD
 function page_exists($slug){
 
 	$i = 0;
@@ -121,65 +120,6 @@ function add_page($name, $slug, $content, $parent = 0){
 	
 	return $id;
 
-}
-
-function removeAcento($string){
-	
-	$a = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿŔŕ';
-	$b = 'aaaaaaaceeeeiiiidnoooooouuuuybsaaaaaaaceeeeiiiidnoooooouuuyybyRr';
-	$string = utf8_decode($string);
-	$string = strtr($string, utf8_decode($a), $b); //substitui letras acentuadas por "normais"
-	//$string = str_replace(" ","",$string); // retira espaco
-	//$string = strtolower($string); // passa tudo para minusculo
-
-	return utf8_encode($string);
-
-=======
-function page_exists($slug){
-
-	$i = 0;
-	
-	for($z=0;$z<=100; $z++):
-		
-		if($z==0):
-			query_posts('pagename='.$slug);
-		else:
-			query_posts('pagename='.$slug.'-'.$z);
-		endif;
-		
-		while(have_posts()): the_post();
-		 	$i++;
-		endwhile; wp_reset_query();
-		
-	endfor;
-	
-	if($i==0):
-		return false;
-	else:
-		return true;
-	endif;
-
-}
-
-function add_page($name, $slug, $content, $parent = 0){
-
-	$page = array(
-	  'post_author' => 1,
-	  'post_date' => date('Y-m-d H:i:s'),
-	  'post_date_gmt' => date('Y-m-d H:i:s'),
-	  'post_name' => $slug,
-	  'post_status' => 'publish', 
-	  'post_parent' => $parent,
-	  'post_title' => $name,
-  	  'post_content' => $content,
-	  'post_type' => 'page',
-	); 
-	
-	$id = wp_insert_post($page);
-	
-	return $id;
-
->>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237
 }
 
 ?>

@@ -11,7 +11,7 @@
 // Mostra o título da página no <title>
 function show_title(){
 
-	global $page, $paged;
+    global $page, $paged;
 
     wp_title( '|', true, 'right' );
     bloginfo( 'name' );
@@ -26,7 +26,7 @@ function show_title(){
 
 // URL da pasta do tema
 function template_url(){
-	echo get_bloginfo('template_url');
+    echo get_bloginfo('template_url');
 }
 
 function css_url(){
@@ -47,19 +47,16 @@ function styles_url(){
 
 // URL do site
 function siteurl(){
-	echo get_bloginfo('url')."/";
+    echo get_bloginfo('url')."/";
 }
 
-<<<<<<< HEAD
 function get_siteurl(){
     return get_bloginfo('url')."/";
 }
 
-=======
->>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237
 // Nome do Site
 function sitename(){
-	echo get_bloginfo('name');
+    echo get_bloginfo('name');
 }
 
 function sitedescription(){
@@ -68,11 +65,11 @@ function sitedescription(){
 
 // Mostra um menu
 function show_menu($menu){
-	wp_nav_menu( array('menu' => $menu,'container'=>'false' ));
+    wp_nav_menu( array('menu' => $menu,'container'=>'false' ));
 }
 
 function ano(){
-	echo date('Y');
+    echo date('Y');
 }
 
 function the_meta_thumbnail_src($meta,$size){
@@ -91,7 +88,6 @@ function the_meta_thumbnail($meta, $size){
 
 }
 
-<<<<<<< HEAD
 function the_post_thumbnail_src($size = 'thumbnail'){
 
     global $post;
@@ -103,8 +99,6 @@ function the_post_thumbnail_src($size = 'thumbnail'){
 
 }
 
-=======
->>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237
 function taxonomy_meta_img_src($term_id, $metabox_id, $field, $size){
     $meta = get_option($metabox_id);
     
@@ -124,27 +118,26 @@ function taxonomy_meta_img($term_id, $metabox_id, $field, $size){
 
 }
 
-<<<<<<< HEAD
 function get_the_cat(){
-	 global $post;
-	 $category = get_the_category($post->ID);	 
+     global $post;
+     $category = get_the_category($post->ID);    
 
-	 return $category[0]->cat_name;
+     return $category[0]->cat_name;
 }
 
 function the_cat(){
-	echo get_the_cat();
+    echo get_the_cat();
 }
 
 function get_the_cat_slug(){
-	 global $post;
-	 $category = get_the_category($post->ID);	
+     global $post;
+     $category = get_the_category($post->ID);   
 
- 	return $category[0]->slug;
+    return $category[0]->slug;
 }
 
 function the_cat_slug(){
-	echo get_the_cat_slug();
+    echo get_the_cat_slug();
 }
 
 function the_breadcrumb() {
@@ -205,6 +198,3 @@ function related_posts($limit) {
 }
 
 ?>
-=======
-
->>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237

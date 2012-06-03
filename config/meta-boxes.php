@@ -32,22 +32,6 @@ endwhile; wp_reset_query();
 
 // 2nd meta box
 $meta_boxes[] = array(
-<<<<<<< HEAD
-	'id'		=> 'postdetail',
-	'title'		=> 'Detalhes do post',
-	'pages'		=> array( 'post'),
-	'fields'	=> array(
-		// WYSIWYG/RICH TEXT EDITOR
-		array(
-			'name'	=> "Destaque?",
-			'id'	=> "{$prefix}destaque",
-			'type'	=> 'checkbox',
-		),
-		array(
-			'name'	=> "Subtítulo",
-			'id'	=> "{$prefix}subtitulo",
-			'type'	=> 'text',
-=======
 	'id'		=> 'medicodetail',
 	'title'		=> 'Um pouco sobre o médico',
 	'pages'		=> array( 'medico'),
@@ -71,17 +55,12 @@ $meta_boxes[] = array(
 			'id'	=> "{$prefix}diagnosticos",
 			'type'	=> 'checkbox_list',
 			'options' => $diagnosticos
->>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237
 		),
 	)
 );
 
 // 2nd meta box
-<<<<<<< HEAD
-/*$meta_boxes[] = array(
-=======
 $meta_boxes[] = array(
->>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237
 	'id'		=> 'diagnosticodetail',
 	'title'		=> 'Descrição',
 	'pages'		=> array( 'diagnostico'),
@@ -93,9 +72,6 @@ $meta_boxes[] = array(
 			'type'	=> 'wysiwyg',
 		),
 	)
-<<<<<<< HEAD
-);*/
-=======
 );
 
 // 2nd meta box
@@ -232,7 +208,6 @@ $meta_boxes[] = array(
 	)
 );
 
->>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237
 
 
 

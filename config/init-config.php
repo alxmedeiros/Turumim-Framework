@@ -4,9 +4,6 @@ function theme_activated(){
 
 	
 	// Cadastra as páginas necessárias para o funcionamento do tema na hora da ativação
-<<<<<<< HEAD
-		
-=======
 	if(!page_exists('a-diagson')):
 	
 	 	$top = add_page('A Diagson', 'a-diagson');
@@ -33,7 +30,6 @@ function theme_activated(){
 	if(!page_exists('planos')) add_page('Planos', 'planos');	
 	if(!page_exists('parceiros')) add_page('Parceiros', 'parceiros');	
 	if(!page_exists('noticias')) add_page('Notícias', 'noticias');		
->>>>>>> 83edf584d486af8960a52a37ff7f8fa86e91e237
 
 }
 
