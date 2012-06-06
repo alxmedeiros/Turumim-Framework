@@ -52,8 +52,7 @@ require_("inc/classes/phpflickr/phpFlickr.php");
 require_folder("config");
 
 /* Rotina de instalação */
-function theme_activated(){
-	echo "chegou na função<br />";
+function theme_activated(){	
 
 	if(file_exists(get_template_directory()."/turumim/config/init.php")):		
 		require_('config/init.php');
