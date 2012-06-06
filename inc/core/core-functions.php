@@ -122,4 +122,56 @@ function add_page($name, $slug, $content, $parent = 0){
 
 }
 
+// ================================================== Post Types
+
+$folder = get_template_directory()."/turumim/config/post-types";
+
+foreach (glob("{$folder}/*.php") as $file):
+	
+	if(strpos($file, '.php')):	
+
+			$filename = str_replace($folder."/","",$file);
+			$post_type = str_replace('.php','',$filename);
+			
+			require($file);
+			register_post_type( $post_type , $type[$post_type] );
+			
+	endif;
+	
+endforeach;
+
+// ================================================== Taxonomies
+
+$folder = get_template_directory()."/turumim/config/post-types/taxonomies";
+
+foreach (glob("{$folder}/*.php") as $file):
+	
+	if(strpos($file, '.php')):	
+
+			$filename = str_replace($folder."/","",$file);
+			$filename = str_replace('.php','',$filename);
+			$array = explode('.',$filename);
+			
+			$post_type = $array[0];
+			$taxonomy = $array[1];
+			
+			require($file);
+			register_taxonomy($taxonomy."_".$post_type, array($post_type), $tax[$taxonomy]);
+			
+	endif;
+	
+endforeach;
+
+function turumim_register_meta_boxes(){
+	global $turumim_meta_boxes;
+	if ( class_exists( 'RW_Meta_Box' ) )
+	{
+		foreach ( $turumim_meta_boxes as $meta_box )
+		{
+			new RW_Meta_Box( $meta_box );
+		}
+	}
+}
+add_action( 'admin_init', 'turumim_register_meta_boxes' );
+
 ?>

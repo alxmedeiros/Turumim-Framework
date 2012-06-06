@@ -11,7 +11,7 @@
 /* Constantes */
 define(TURUMIM_URL, get_bloginfo('template_url')."/turumim/");
 define(THEME_URL, get_bloginfo('template_url'));
-define(IMAGES_URL, get_bloginfo('template_url')."/images/");
+define(IMAGES_URL, get_bloginfo('template_url')."/imagens/");
 define(IMG_URL, TURUMIM_URL."inc/core/img/");
 define(CSS_URL, THEME_URL."/css/");
 define(TUR_CSS_URL, TURUMIM_URL."inc/core/css/");

@@ -14,7 +14,7 @@
         'parent_item_colon' => ''
     );
  	
- 	$type['parceiro'] = array(
+ 	$type['equipe'] = array(
  	   'labels' => $labels,
  	   'public' => true,
  	   'publicly_queryable' => true,

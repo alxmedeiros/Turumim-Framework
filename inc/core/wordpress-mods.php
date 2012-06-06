@@ -58,44 +58,7 @@ if ( is_admin() && isset($_GET['activated']) && $pagenow == "themes.php" ) {
 	add_action( 'admin_notices', 'theme_activated');
 }
 
-// ================================================== Post Types
 
-$folder = get_template_directory()."/turumim/config/post-types";
 
-foreach (glob("{$folder}/*.php") as $file):
-	
-	if(strpos($file, '.php')):	
-
-			$filename = str_replace($folder."/","",$file);
-			$post_type = str_replace('.php','',$filename);
-			
-			require($file);
-			register_post_type( $post_type , $type[$post_type] );
-			
-	endif;
-	
-endforeach;
-
-// ================================================== Taxonomies
-
-$folder = get_template_directory()."/turumim/config/post-types/taxonomies";
-
-foreach (glob("{$folder}/*.php") as $file):
-	
-	if(strpos($file, '.php')):	
-
-			$filename = str_replace($folder."/","",$file);
-			$filename = str_replace('.php','',$filename);
-			$array = explode('-',$filename);
-			
-			$post_type = $array[0];
-			$taxonomy = $array[1];
-			
-			require($file);
-			register_taxonomy($taxonomy, array($post_type), $tax[$taxonomy]);
-			
-	endif;
-	
-endforeach;
 
 ?>
