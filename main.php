@@ -21,8 +21,10 @@ define(JS_URL, THEME_URL."/js/");
 function require_folder($folder){
 
 	$folder = get_template_directory()."/turumim/".$folder;
-    foreach (glob("{$folder}/*.php") as $filename):
-		require $filename;
+    foreach (glob("{$folder}/*.php") as $filename):  
+
+    	if(!strpos($filename, "init.php")) require $filename;
+
     endforeach;
 
 }
@@ -49,6 +51,15 @@ require_("inc/classes/phpflickr/phpFlickr.php");
 /* Configurações */
 require_folder("config");
 
+/* Rotina de instalação */
+function theme_activated(){
+	echo "chegou na função<br />";
+
+	if(file_exists(get_template_directory()."/turumim/config/init.php")):		
+		require_('config/init.php');
+	endif;
+
+}
 
 /* Inicia os Helpers */
 $html = new HtmlHelper();

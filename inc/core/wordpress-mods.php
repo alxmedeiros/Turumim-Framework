@@ -58,7 +58,4 @@ if ( is_admin() && isset($_GET['activated']) && $pagenow == "themes.php" ) {
 	add_action( 'admin_notices', 'theme_activated');
 }
 
-
-
-
 ?>

@@ -8,11 +8,13 @@
  * @license http://www.gnu.org/copyleft/lesser.html LGPL
  */
 
-function debug($a){
-	echo "<pre>";
-	var_dump($a);
-	echo "</pre>";
-}
+if(!function_exists('debug')):
+	function debug($a){
+		echo "<pre>";
+		var_dump($a);
+		echo "</pre>";
+	}
+endif;
 
 function get_page_option($name){
 
@@ -30,15 +32,19 @@ function page_option($name){
 	echo get_page_option($name);
 }
 
-function meta($meta){
-	global $post;
-	echo get_post_meta($post->ID, $meta, true);
-}
+if(!function_exists('meta')):
+	function meta($meta){
+		global $post;
+		echo get_post_meta($post->ID, $meta, true);
+	}
+endif;
 
-function get_meta($meta){
-	global $post;
-	return get_post_meta($post->ID, $meta, true);
-}
+if(!function_exists('get_meta')):
+	function get_meta($meta){
+		global $post;
+		return get_post_meta($post->ID, $meta, true);
+	}
+endif;
 
 function remove_admin_menu($name){
 
