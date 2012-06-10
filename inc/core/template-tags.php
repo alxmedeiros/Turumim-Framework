@@ -160,7 +160,7 @@ function get_post_terms_name($taxonomy){
 }
 
 /* exibe os termos da taxonomia passada em um loop no formato '$termo1, $termo2, ... $termoN.' */
-function the_terms_name($taxonomy){
+function the_post_terms_name($taxonomy){
 	$terms = get_post_terms_name($taxonomy);
 	$output = "";
 
