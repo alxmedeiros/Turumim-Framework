@@ -140,6 +140,34 @@ function the_cat_slug(){
     echo get_the_cat_slug();
 }
 
+/* retorna um Array com os termos da taxonomia passada por um post */
+function get_terms_name($taxonomy){
+	global $post;
+	$terms = get_the_terms($post->ID, $taxonomy);
+	$terms_name = array();
+
+	foreach ($terms as $value) {
+		$terms_name[] = $value->name;
+	}
+
+	return $terms_name;
+}
+
+/* retorna uma string com os termos da taxonomia passada por um post */
+function the_terms_name($taxonomy){
+	$terms = get_terms_name($taxonomy);
+	$output = "";
+
+	foreach ($terms as $key => $value) {
+		if($key+1<count($terms))
+			$output .= "$value, ";
+		else
+			$output .= "$value.";
+	}
+
+	return $output;
+}
+
 function the_breadcrumb() {
     if (!is_home()) {
         echo '<a href="'.get_siteurl().'">Principal »</a>';
