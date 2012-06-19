@@ -1,0 +1,12 @@
+/**
+ * Folha de estilos para formulário e demais elementos
+ * @name Folha de Estilos
+ * @package Turumim Framework
+ * @version 0.1
+ * @author Sérgio Vilar
+ * @license http://www.gnu.org/copyleft/lesser.html LGPL
+ */
+
+.feelsen-form .formulario-input label{display:block;width:150px;float:left;}
+.formulario-input{margin-bottom:10px;}
+.formulario-input textarea{width:300px; height:100px;}
